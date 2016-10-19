@@ -16,6 +16,8 @@ echo ".bash_aliases"
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias cd=cd_func
+alias dirs='dirs -v'
 
 # Default to human readable figures
 alias df='df -h'
