@@ -71,7 +71,7 @@ NeoBundle 'ConradIrwin/vim-bracketed-paste'
 " 閉じ括弧等の自動補完
 NeoBundle "kana/vim-smartinput"
 " インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
 " lua機能が有効になっている場合
 if has('lua')
   " キーワード補完プラグイン
@@ -356,14 +356,14 @@ set laststatus=2
 "---------------------------------------------------
 " Plugin: インデント確認補助 vim-indent-guides
 "---------------------------------------------------
-"" 自動起動ON
-let g:indent_guides_enable_on_vim_startup = 1
+" 自動起動ON
+"let g:indent_guides_enable_on_vim_startup = 1
 
-let g:indent_guides_auto_colors=0
+"let g:indent_guides_auto_colors=0
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 
 
 "---------------------------------------------------
