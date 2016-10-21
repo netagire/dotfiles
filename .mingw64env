@@ -1,0 +1,2 @@
+export PATH=$PATH:/mingw64/bin
+export MANPATH=$MANPATH:/mingw64/share/man
