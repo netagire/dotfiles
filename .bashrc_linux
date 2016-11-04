@@ -1,0 +1,22 @@
+#!bin/bash
+echo ".bashrc_linux"
+
+if [ -d $HOME/.anyenv  ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+fi
+if [ -d $HOME/.anyenv/envs/goenv  ]; then
+  if [[ $(which go) != "" ]]; then
+    export GOPATH="$HOME/go"
+    export GO15VENDOREXPERIMENT=1
+  fi
+fi
+if [ -d $HOME/.anyenv/envs/rbenv  ]; then
+  export RUBY_CONFIGURE_OPTS="--enable-shared"
+  if [ $(cat $RBENV_ROOT/version) = "system"  ]; then
+    unset LD_LIBRARY_PATH
+  else
+    export LD_LIBRARY_PATH=$RBENV_ROOT/versions/$(cat $RBENV_ROOT/version)/lib:$LD_LIBRARY_PATH
+  fi
+fi
+

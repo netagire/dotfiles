@@ -1,0 +1,15 @@
+# .bash_functions_msysの中身
+echo '.bash_functions_msys'
+
+# Functions for MSYS2 bash
+
+# pacman for mingw64
+function pinst()
+{
+    pacman -S "mingw-w64-x86_64-$1"
+}
+function puninst()
+{
+    pacman -Rs "mingw-w64-x86_64-$1"
+}
+
