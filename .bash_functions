@@ -1,3 +1,4 @@
+#!/bin/bash
 # .bash_functionsの中身
 echo '.bash_functions'
 
@@ -67,18 +68,6 @@ cd_func ()
   return 0
 }
 
-# Functions for MSYS2 bash
-
-# pacman for mingw64
-function pinst()
-{
-    pacman -S "mingw-w64-x86_64-$1"
-}
-function puninst()
-{
-    pacman -Rs "mingw-w64-x86_64-$1"
-}
-
 # others
 function snow()
 {
@@ -89,3 +78,11 @@ function matrix()
 {
     echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|gawk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
 }
+
+case "$(uname -s)" in
+  "Linux" )
+    . .bash_functions_linux;;
+  MSYS_NT* )
+    . .bash_functions_msys;;
+esac
+

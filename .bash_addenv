@@ -1,3 +1,4 @@
+#!/bin/bash
 echo ".bash_addenv"
 source .goenvrc
 source .mingw64env

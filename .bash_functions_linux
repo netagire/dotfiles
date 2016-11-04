@@ -1,5 +1,6 @@
+#!/bin/bash
 # .bash_functionsの中身
-echo '.bash_functions'
+echo '.bash_functions_linux'
 
 # Some example functions:
 #

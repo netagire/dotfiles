@@ -1,3 +1,4 @@
+#!/bin/bash
 # Aliases for msys
 echo ".bash_aliases_msys"
 

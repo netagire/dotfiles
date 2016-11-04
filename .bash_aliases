@@ -1,3 +1,4 @@
+#!/bin/bash
 # Aliases
 echo ".bash_aliases"
 #
@@ -26,34 +27,17 @@ alias du='du -h'
 # Misc :)
 alias less='less -r'                          # raw control characters
 alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-alias egrep='egrep --color=auto'              # show differences in colour
-alias fgrep='fgrep --color=auto'              # show differences in colour
 
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias l='ls -CF'                              #
 alias vi=vim
-alias vscode=code
 
 alias relogin='exec $SHELL -l'
 
-# Windowsコマンド文字化け対策
-function wincmd()
-{
-    CMD=$1
-    shift
-    $CMD $* 2>&1 | iconv -f CP932 -t UTF-8
-}
-# alias cmd='winpty cmd'
-# alias psh='winpty powershell'
-alias ipconfig='wincmd ipconfig'
-alias netstat='wincmd netstat'
-alias netsh='wincmd netsh'
-# pingのコマンド名混同を避けるため絶対パスで指定
-alias ping='wincmd /c/windows/system32/ping'
+
+case "$(uname -s)" in
+  "Linux" )
+    . .bash_aliases_linux;;
+  MSYS_NT* )
+    . .bash_aliases_msys;;
+esac
 
